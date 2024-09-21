@@ -1,0 +1,188 @@
+/* Contenedor principal */
+.App {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Contenedor de usuario y pruebas */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinea los contenedores al inicio en la altura */
+    gap: 20px;
+}
+
+/* Sección de botones de usuario */
+.left-section {
+    width: 45%;
+    display: flex;
+    flex-direction: column; /* Cambia a columna para centrar los botones */
+    align-items: center; /* Centra los botones horizontalmente */
+    gap: 20px;
+}
+
+/* Botones de usuarios */
+.user-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 10px; /* Espacio entre los botones */
+    justify-items: center; /* Centra los botones dentro de cada celda de la grid */
+}
+
+/* Ajuste para pantallas más pequeñas (2 columnas) */
+@media (max-width: 768px) {
+    .user-buttons {
+        grid-template-columns: repeat(2, 1fr); /* Cambia a 2 columnas */
+    }
+}
+
+/* Ajuste para pantallas muy pequeñas (1 columna) */
+@media (max-width: 480px) {
+    .user-buttons {
+        grid-template-columns: 1fr; /* Cambia a 1 columna */
+    }
+}
+
+/* Botones de usuarios */
+.user-btn {
+    width: 100px; /* Tamaño fijo para todos los botones */
+    height: 100px; /* Tamaño fijo para todos los botones */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    position: relative; /* Posicionamiento relativo para los iconos */
+}
+
+.user-btn img {
+    width: 40px; /* Tamaño del icono */
+    height: 40px; /* Tamaño del icono */
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+.user-btn.selected {
+    background-color: #4CAF50; /* Color de fondo cuando está seleccionado */
+    color: white;
+}
+
+/* Sección de botones de prueba */
+.right-section {
+    width: 45%;
+    position: relative; /* Posicionamiento relativo para el contenedor de pruebas */
+}
+
+/* Contenedor de los botones de prueba */
+.test-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
+    gap: 10px; /* Espacio entre los botones */
+    padding-bottom: 100px; /* Espacio para el contenedor de botones de acción */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    justify-items: center; /* Centra los botones horizontalmente */
+}
+
+/* Ajuste para pantallas medianas (3 columnas) */
+@media (max-width: 1024px) {
+    .test-buttons {
+        grid-template-columns: repeat(3, 1fr); /* Cambia a 3 columnas */
+    }
+}
+
+/* Ajuste para pantallas pequeñas (2 columnas) */
+@media (max-width: 768px) {
+    .test-buttons {
+        grid-template-columns: repeat(2, 1fr); /* Cambia a 2 columnas */
+    }
+}
+
+/* Ajuste para pantallas muy pequeñas (1 columna) */
+@media (max-width: 480px) {
+    .test-buttons {
+        grid-template-columns: 1fr; /* Cambia a 1 columna */
+    }
+}
+
+/* Botones individuales */
+.test-btn {
+    width: 100%; /* Asegura que el botón ocupe todo el ancho de la celda */
+    height: 100px; /* Tamaño fijo para todos los botones */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    position: relative;
+}
+
+/* Ocultar los botones que no son accesibles */
+.test-btn.hidden {
+    display: none; /* Oculta los botones */
+}
+
+.test-btn img {
+    width: 40px; /* Tamaño del icono */
+    height: 40px; /* Tamaño del icono */
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+.test-btn.selected {
+    background-color: #4CAF50; /* Color de fondo cuando está seleccionado */
+    color: white;
+}
+
+/* Sección de botones de acciones */
+.action-buttons {
+    position: sticky;
+    bottom: 20px; /* Ajusta el espacio desde el borde inferior */
+    background-color: #fff; /* Color de fondo para destacar los botones */
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center; /* Centra los botones horizontalmente */
+    width: 100%; /* Asegura que el contenedor ocupa todo el ancho disponible */
+    border-top: 2px solid #ccc; /* Añade una línea superior para separar visualmente */
+}
+
+.action-buttons button {
+    width: 100px; /* Tamaño fijo para todos los botones */
+    height: 100px; /* Tamaño fijo para todos los botones */
+    padding: 10px;
+    display: block;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.action-buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Evitar solapamiento en pantallas pequeñas */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column; /* Alinea los elementos uno debajo del otro */
+        align-items: center; /* Centra los elementos en el eje principal */
+    }
+
+    .left-section, .right-section {
+        width: 100%; /* Hace que las secciones ocupen todo el ancho */
+    }
+
+    .action-buttons {
+        position: static; /* Desactiva el sticky para evitar que los botones floten */
+    }
+}
